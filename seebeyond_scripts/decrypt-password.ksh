@@ -51,7 +51,7 @@ echo \(display \(string-append \"\<PASSWORD\>\" \(string-decrypt\"$SYSTEM_NAME\"
 PWD_CRYPT=`stctrans -md $WORK_DIR/kiagenpwd_$$.txt | grep "<PASSWORD>" | nawk -F"<PASSWORD>" '{printf("%s", $2);}'`
 
 # remove monk script
-# rm -f $WORK_DIR/kiagenpwd_$$.txt
+rm -f $WORK_DIR/kiagenpwd_$$.txt
 
 echo "$PWD_CRYPT"
 

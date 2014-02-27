@@ -2,7 +2,8 @@
 
 ###########################
 #
-# script to truncate files specified by pattern
+# script to truncate files specified by pattern, used to reset a set of egate logs
+# as they can't just be deleted while the server is runing
 # 
 # Takes list of files as parameters, this can specific file/s or a shell
 # glob pattern. e.g. 

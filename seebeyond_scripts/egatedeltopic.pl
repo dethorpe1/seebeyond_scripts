@@ -51,10 +51,10 @@ sub select_topic {
 	foreach my $line (`stcmsctrlutil.exe -p $port -tl`) {
 		if ($line =~ m  {
 			             ^      # Beginning of line
-				     \s+    # Any Whitespace
-				     (.*)   # capture rest of line
-				     $      # end of line
-				   }x) {
+				     	\s+    # Any Whitespace
+				     	(.*)   # capture rest of line
+				     	$      # end of line
+				   		}x) {
 		  	$menu{$count} = $1;
   			print '  ' . $count++ . ") $1\n";
 		}
@@ -90,14 +90,14 @@ sub delete_topic {
 
 	open (my $slft_fh, "-|", "stcmsctrlutil.exe -p $port -slft $topic") || croak "Unable to run slft command. $!";
 	while (my $line = <$slft_fh>){
-		if ($line =~ m/^Subscriber name:/) {
+	if ($line =~ m/^Subscriber name:/) {
 	  	print $line;
 			$subscriber = (split (/ /, $line))[2];
 			chomp $subscriber;
-		}
-		if ($line =~ m/Client ID:/) {
+	}
+	if ($line =~ m/Client ID:/) {
 			$line =~ s/^\s+//;
-	  	print $line;
+		  	print $line;
 			$client = (split (/ /, $line))[2]; 
 			chomp $client;
 			print "Deleteing Subscriber: $subscriber, Client: $client.\n";
